@@ -1,0 +1,41 @@
+// sanity/plugins/netlify-deploy-action/index.ts
+import { definePlugin } from 'sanity'
+
+const BUILD_HOOK = process.env.SANITY_NETLIFY_BUILD_HOOK || ''
+
+function wrapPublishAction(origAction: any) {
+  if (!origAction || (origAction?.key !== 'publish' && origAction?.action !== 'publish')) {
+    return origAction
+  }
+
+  return {
+    ...origAction,
+    async perform(context: any, doc: any) {
+      // perform original publish
+      const result = await origAction.perform?.(context, doc)
+
+      // fire Netlify build hook (non-blocking)
+      if (BUILD_HOOK) {
+        try {
+          await fetch(BUILD_HOOK, { method: 'POST' })
+        } catch (err) {
+          // don't block publish — just log
+          // eslint-disable-next-line no-console
+          console.error('[netlify-deploy-action] Failed to call build hook', err)
+        }
+      } else {
+        // eslint-disable-next-line no-console
+        console.warn('[netlify-deploy-action] SANITY_NETLIFY_BUILD_HOOK not set')
+      }
+
+      return result
+    },
+  }
+}
+
+export default definePlugin({
+  name: 'netlify-deploy-action',
+  document: {
+    actions: (prev: any[]) => prev.map((a) => wrapPublishAction(a)),
+  },
+})
