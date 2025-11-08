@@ -112,7 +112,7 @@ export default {
       to: [{ type: 'author' }],
       description: 'Reference to author document'
     },
-  {
+ {
   name: 'category',
   title: 'Category',
   type: 'string',
@@ -123,6 +123,7 @@ export default {
       { title: 'Featured Stories', value: 'featured-stories' },
       { title: 'Regulation & Policy', value: 'regulation-policy' },
       { title: 'Bitcoin News', value: 'bitcoin-news' },
+      { title: 'Altcoin News', value: 'altcoin-news' },  // ← NEW!
       { title: 'Exchanges & Trading', value: 'exchanges-trading' },
       { title: 'Technology', value: 'technology' },
       { title: 'DeFi & Web3', value: 'defi-web3' },
