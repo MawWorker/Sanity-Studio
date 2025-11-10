@@ -112,14 +112,26 @@ export default {
       to: [{ type: 'author' }],
       description: 'Reference to author document'
     },
-    {
-      name: 'category',
-      title: 'Category',
-      type: 'reference',
-      to: [{ type: 'category' }],
-      validation: (Rule: any) => Rule.required(),
-      description: 'Select article category'
-    },
+ {
+  name: 'category',
+  title: 'Category',
+  type: 'string',
+  options: {
+    list: [
+      { title: 'Market Analysis', value: 'market-analysis' },
+      { title: 'NFTs & Gaming', value: 'nfts-gaming' },
+      { title: 'Featured Stories', value: 'featured-stories' },
+      { title: 'Regulation & Policy', value: 'regulation-policy' },
+      { title: 'Bitcoin News', value: 'bitcoin-news' },
+      { title: 'Altcoin News', value: 'altcoin-news' },  // ← NEW!
+      { title: 'Exchanges & Trading', value: 'exchanges-trading' },
+      { title: 'Technology', value: 'technology' },
+      { title: 'DeFi & Web3', value: 'defi-web3' },
+      { title: 'Philippines Crypto News', value: 'philippines' }
+    ]
+  },
+  validation: (Rule: any) => Rule.required()
+},
     {
       name: 'tags',
       title: 'Tags',
