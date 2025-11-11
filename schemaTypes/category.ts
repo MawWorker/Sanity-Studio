@@ -31,25 +31,39 @@ export default {
       type: 'string',
       options: {
         list: [
-          { title: 'Blue', value: 'blue' },
-          { title: 'Green', value: 'green' },
-          { title: 'Purple', value: 'purple' },
-          { title: 'Orange', value: 'orange' },
           { title: 'Red', value: 'red' },
-          { title: 'Yellow', value: 'yellow' },
-          { title: 'Pink', value: 'pink' },
-          { title: 'Indigo', value: 'indigo' },
+          { title: 'Amber', value: 'amber' },
+          { title: 'Green', value: 'green' },
+          { title: 'Blue', value: 'blue' },
           { title: 'Teal', value: 'teal' },
-          { title: 'Gray', value: 'gray' }
+          { title: 'Indigo', value: 'indigo' },
+          { title: 'Purple', value: 'purple' },
+          { title: 'Gray', value: 'gray' },
+          { title: 'Yellow', value: 'yellow' }
         ]
       },
       initialValue: 'blue'
+    },
+    {
+      name: 'order',
+      title: 'Display Order',
+      type: 'number',
+      description: 'Order in which this category appears (lower numbers first)',
+      validation: (Rule: any) => Rule.required().min(0)
     }
   ],
   preview: {
     select: {
       title: 'name',
-      subtitle: 'description'
+      subtitle: 'description',
+      order: 'order'
+    },
+    prepare(selection: any) {
+      const { title, subtitle, order } = selection;
+      return {
+        title: `${order}. ${title}`,
+        subtitle: subtitle
+      }
     }
   }
 }
