@@ -115,10 +115,22 @@ export default {
     {
       name: 'category',
       title: 'Category',
-      type: 'reference',
-      to: [{ type: 'category' }],
-      validation: (Rule: any) => Rule.required(),
-      description: 'Select article category'
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Breaking News', value: 'breaking-news' },
+          { title: 'Bitcoin', value: 'bitcoin' },
+          { title: 'Altcoins', value: 'altcoins' },
+          { title: 'Market Analysis', value: 'market-analysis' },
+          { title: 'DeFi & Web3', value: 'defi-web3' },
+          { title: 'Exchanges & Trading', value: 'exchanges-trading' },
+          { title: 'Regulation & Policy', value: 'regulation-policy' },
+          { title: 'NFTs & Gaming', value: 'nfts-gaming' },
+          { title: 'Philippines', value: 'philippines' },
+          { title: 'Featured Stories', value: 'featured-stories' }
+        ]
+      },
+      validation: (Rule: any) => Rule.required()
     },
     {
       name: 'tags',
