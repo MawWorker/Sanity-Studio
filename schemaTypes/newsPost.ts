@@ -127,7 +127,9 @@ export default {
           { title: 'Regulation & Policy', value: 'regulation-policy' },
           { title: 'NFTs & Gaming', value: 'nfts-gaming' },
           { title: 'Philippines', value: 'philippines' },
-          { title: 'Featured Stories', value: 'featured-stories' }
+          { title: 'Featured Stories', value: 'featured-stories' },
+          { title: 'Guides', value: 'guides' },
+          { title: 'Learn', value: 'learn' }
         ]
       },
       validation: (Rule: any) => Rule.required()
@@ -138,6 +140,16 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       options: { layout: 'tags' }
+    },
+    {
+      name: 'tickers',
+      title: 'Coin Tickers',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'Cryptocurrency ticker symbols mentioned in this article (e.g. BTC, ETH, SOL)',
+      options: {
+        layout: 'tags'
+      }
     },
     {
       name: 'datePublished',

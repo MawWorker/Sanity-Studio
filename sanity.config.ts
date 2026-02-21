@@ -28,7 +28,7 @@ export default defineConfig({
   name: 'default',
   title: 'DailyCrypto',
 
-  projectId: 'uiu9mgqs',
+  projectId: 'fy5tiy99',
   dataset: 'production',
 
   // Deployment configuration for Sanity hosting
