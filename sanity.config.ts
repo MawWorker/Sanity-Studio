@@ -53,36 +53,6 @@ export default defineConfig({
                   .defaultOrdering([{ field: 'datePublished', direction: 'desc' }])
               ),
 
-            // Daily Content
-            S.listItem()
-              .title('Daily Recaps')
-              .child(
-                S.documentTypeList('dailyRecap')
-                  .title('Daily Recaps')
-                  .filter('_type == "dailyRecap"')
-                  .defaultOrdering([{ field: 'date', direction: 'desc' }])
-              ),
-
-            // Weekly Content
-            S.listItem()
-              .title('Weekly Summaries')
-              .child(
-                S.documentTypeList('weeklySummary')
-                  .title('Weekly Summaries')
-                  .filter('_type == "weeklySummary"')
-                  .defaultOrdering([{ field: 'weekStartDate', direction: 'desc' }])
-              ),
-
-            // Archives
-            S.listItem()
-              .title('Archives')
-              .child(
-                S.documentTypeList('archive')
-                  .title('Archives')
-                  .filter('_type == "archive"')
-                  .defaultOrdering([{ field: 'date', direction: 'desc' }])
-              ),
-
             S.divider(),
 
             // Reference Data
