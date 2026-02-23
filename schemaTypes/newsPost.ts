@@ -84,6 +84,18 @@ export default {
       description: 'One-sentence insight shown in the Key Takeaway box on article pages. Leave empty to hide the box.',
     },
     {
+      name: 'tagalogKeyTakeaway',
+      title: 'Key Takeaway (Tagalog)',
+      type: 'string',
+      description: 'Tagalog translation of the Key Takeaway. Leave empty to use the English version.',
+    },
+    {
+      name: 'cebuanoKeyTakeaway',
+      title: 'Key Takeaway (Cebuano)',
+      type: 'string',
+      description: 'Cebuano translation of the Key Takeaway. Leave empty to use the English version.',
+    },
+    {
       name: 'featuredImageUrl',
       title: 'Featured Image URL',
       type: 'url',
