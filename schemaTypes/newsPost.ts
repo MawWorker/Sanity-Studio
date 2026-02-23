@@ -78,21 +78,10 @@ export default {
       rows: 10
     },
     {
-      name: 'ilocanoTitle',
-      title: 'Ilocano Title',
-      type: 'string'
-    },
-    {
-      name: 'ilocanoExcerpt',
-      title: 'Ilocano Excerpt',
-      type: 'text',
-      rows: 2
-    },
-    {
-      name: 'ilocanoBody',
-      title: 'Ilocano Body',
-      type: 'text',
-      rows: 10
+      name: 'keyTakeaway',
+      title: 'Key Takeaway',
+      type: 'string',
+      description: 'One-sentence insight shown in the Key Takeaway box on article pages. Leave empty to hide the box.',
     },
     {
       name: 'featuredImageUrl',
